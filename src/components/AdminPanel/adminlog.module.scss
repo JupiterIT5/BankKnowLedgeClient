@@ -1,0 +1,143 @@
+.adminlog {
+	width: 100%;
+	height: calc(100vh - 50px);
+	padding: 0 15%;
+	margin-top: 100px;
+
+	.btnTable {
+		display: flex;
+		flex-direction: row;
+		gap: 30px;
+		padding-bottom: 20px;
+		border-bottom: 2px solid rgba(0,0,0, .5);
+
+		h2 {
+			font-family: "Roboto";
+			font-size: 28px;
+			font-weight: 400;
+			cursor: pointer;
+			transition: .2s ease-out;
+			
+			&:hover {
+				scale: 1.03;
+				transition: .2s ease-in;
+			}
+		}
+
+		.active {
+			color: royalblue;
+			cursor: default;
+
+			&:hover {
+				scale: 1;
+			}
+		}
+	}
+
+	.userLog {
+		width: 100%;
+		height: 700px;
+		border: 1px solid rgba(0,0,0,.5);
+		padding: 20px;
+		overflow-y: auto;
+		margin: 50px 0;
+
+		.usertable {
+			width: 100%;
+			height: auto;
+			border: 1px solid rgba(0,0,0,.5);
+
+			td {
+				width: 16.7%;
+				text-align: center;
+				padding: 10px;
+				border: 1px solid rgba(0,0,0,.5);
+				font-family: 'Roboto';
+			}
+			td:nth-child(6) {
+				color: royalblue;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media (max-width: 1170px) {
+	.adminlog {
+		.userLog {
+			.usertable {
+				td {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 935px) {
+	.adminlog {
+		padding: 0 5%;
+	}
+}
+
+@media (max-width: 740px) {
+	.adminlog {
+		padding: 0 1%;
+	}
+}
+
+@media (max-width: 680px) {
+	.adminlog {
+		.userLog {
+			.usertable {
+				td {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 620px) {
+	.adminlog {
+		.userLog {
+			.usertable {
+				td:nth-child(4) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 530px) {
+	.adminlog {
+		.userLog {
+			padding: 2px;
+		}
+	}
+}
+
+@media (max-width: 483px) {
+	.adminlog {
+		.userLog {
+			.usertable {
+				td:nth-child(3) {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 370px) {
+	.adminlog {
+		.userLog {
+			.usertable {
+				td {
+					padding: 4px;
+				}
+			}
+		}
+	}
+}

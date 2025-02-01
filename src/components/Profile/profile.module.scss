@@ -1,0 +1,65 @@
+.profile {
+	width: 100%;
+	height: calc(100vh - 420px);
+
+	.data {
+		padding: 0 15%;
+		display: flex;
+		flex-direction: row;
+		margin: 150px auto;
+		justify-content: center;
+		gap: 20px;
+
+		.userIMG {
+			border: 2px solid #000;
+			padding-top: 35px;
+		}
+
+		.userInfo {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			margin-top: 20px;
+
+			h2 {
+				font-family: 'Roboto';
+				font-weight: 400;
+
+				span {
+					font-weight: bold;
+				}
+			}
+
+			.btnUser {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				margin-top: 20px;
+
+				button {
+					width: 150px;
+					height: 45px;
+					background-color: royalblue;
+					border: none;
+					font-family: 'Roboto';
+					font-size: 16px;
+					border-radius: 5px;
+					color: #fff;
+					cursor: pointer;
+					transition: .2s all;
+
+					&:hover {
+						scale: 1.03;
+						transition: .2s all;
+					}
+				}
+
+				.exitBtn {
+					background-color: transparent;
+					border: 1px solid royalblue;
+					color: royalblue;
+				}
+			}
+		}
+	}
+}

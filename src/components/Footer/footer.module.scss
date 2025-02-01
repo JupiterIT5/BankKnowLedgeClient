@@ -1,0 +1,148 @@
+.footer {
+	width: 100%;
+	height: auto;
+	background-color: #f6f7f8;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 45px 0;
+	gap: 30px;
+
+	span {
+		width: 1px;
+		height: 60px;
+		background-color: rgba(0,0,0,.2);
+	}
+
+	.nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 55px;
+		
+		.navList {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+
+			a {
+				font-size: 16px;
+				font-family: 'Roboto';
+				font-weight: 400;
+				color: rgba(0,0,0,.4);
+			}
+		}
+	}
+
+	.mobAppContaner {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		gap: 15px;
+
+		h2 {
+			font-size: 16px;
+			font-family: "Roboto";
+			color: rgba(0,0,0,.4);
+			font-weight: 400;
+		}
+
+		.mobApp {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+
+			button {
+				width: 130px;
+				height: 50px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 10px;
+				border-radius: 4px;
+				border: 1px solid rgba(0,0,0,.4);
+				background-color: transparent;
+				cursor: pointer;
+				transition: .2s ease-out;
+
+				&:hover {
+					scale: 1.03;
+					transition: .2s ease-in;
+				}
+	
+				img {
+					width: 28px;
+					height: 28px;
+					opacity: 0.4;
+				}
+	
+				h6 {
+					font-family: 'Roboto';
+					font-size: 14px;
+					font-weight: 400;
+					color: rgba(0,0,0,.4);
+				}
+			}
+		}
+	}
+
+	.recomendation {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		gap: 7px;
+
+		h4, a {
+			font-size: 16px;
+			font-family: "Roboto";
+			font-weight: 400;
+			color: rgba(0,0,0,.4);
+		}
+
+		a {
+			position: relative;
+			margin-left: 25px;
+		}
+		
+		.bank::before {
+			content: '';
+			position: absolute;
+			background-image: url(../../images/icons/site.png);
+			background-size: cover;
+			width: 20px;
+			height: 20px;
+			left: -25px;
+			top: 0;
+			opacity: 0.4;
+		}
+
+		.adress::before {
+			content: '';
+			position: absolute;
+			background-image: url(../../images/icons/map.png);
+			background-size: cover;
+			width: 20px;
+			height: 20px;
+			left: -25px;
+			top: 0;
+			opacity: 0.4;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.footer {
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
+		padding: 45px 45px;
+
+		span {
+			display: none;
+		}
+	}
+}

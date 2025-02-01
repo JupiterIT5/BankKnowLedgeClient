@@ -1,0 +1,173 @@
+.header {
+	.airBlock {
+		width: 100%;
+		height: 90px;
+		background-color: rgb(52, 55, 70);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		padding: 15px 0;
+
+		.logo {
+			width: 110px;
+			height: 110px;
+		}
+
+		h2 {
+			font-family: 'Roboto';
+			font-size: 28px;
+			color: #fff;
+			margin-left: -10px;
+		}
+	}
+
+	.userData {
+		background-color: #fff;
+		width: 100%;
+		height: 60px;
+		box-shadow: 3px 4px 13px 5px rgba(34, 60, 80, 0.2);;
+		display: flex;
+		flex-direction: row;
+		padding: 0 15%;
+		justify-content: space-between;
+		align-items: center;
+
+		.nav {
+			display: flex;
+			flex-direction: row;
+			gap: 0;
+
+			a {
+				padding: 0 12px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #000;
+				transition: .3s ease-in-out;
+				font-family: 'Roboto';
+				height: 60px;
+
+				&:hover {
+					background-color: rgb(204, 0, 61);
+					color: #fff;
+					transition: .3s ease-in-out;
+				}
+			}
+		}
+
+		.userProfile {
+			background-color: transparent;
+			margin-left: 20px;
+
+			.authH2 {
+				display: flex;
+				flex-direction: row;
+				gap: 7px;
+				align-items: center;
+
+				.auth {
+					font-family: "Roboto";
+					font-size: 16px;
+					font-style: normal;
+					font-weight: 400;
+				}
+			}
+
+			.user {
+				display: flex;
+				flex-direction: row;
+				gap: 10px;
+				cursor: pointer;
+				align-items: center;
+
+				.userProfileData {
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					align-items: end;
+					gap: 3px;
+
+					.userName {
+						font-family: 'Roboto';
+						font-size: 15px;
+						font-weight: bold;
+						color: rgba(0,0,0,.8);
+					}
+
+					.privateRoomText {
+						font-family: 'Roboto';
+						font-size: 12px;
+						font-weight: bold;
+						color: rgba(0,0,0,.6);
+					}
+				}
+				.userIcon {
+					width: 35px;
+					height: 35px;
+				}
+
+				.logout {
+					width: 25px;
+					height: 25px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.header {
+		.userData {
+			padding: 0 5%;
+		}
+	}
+}
+
+@media (max-width: 460px) {
+	.header {
+		.userData {
+			.nav {
+				a {
+					font-size: 14px;
+				}
+			}
+
+			.userProfile{
+				.authH2 {
+					.auth {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.header {
+		.userData {
+			padding: 0 2%;
+
+			.nav {
+				a {
+					padding: 0 6px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 530px) {
+	.header {
+		.userData {
+			.userProfile {
+				.user {
+					.userProfileData {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
