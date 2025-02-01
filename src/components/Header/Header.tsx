@@ -3,16 +3,15 @@ import style from './header.module.scss'
 import user from '../../images/icons/user.png'
 import logout from '../../images/icons/logout.png'
 import logo from '../../images/img/logotype.png'
-import axios from 'axios'
 
 const Header = () => {
 
 	const [ active, setActive ] = useState<Boolean>(false)
-	const [ login, setLogin ] = useState<string>('')
+	const [ login, setLogin ] = useState<string | undefined>('')
 
 	useEffect(() => {
 		if (!localStorage.getItem('user')) return 
-		const login: string = localStorage.getItem('user')?.split('+')[0]
+		const login: string | undefined = localStorage.getItem('user')?.split('+')[0]
 		setLogin(login)
 		setActive(true)
 	}, [])

@@ -2,7 +2,6 @@ import { IGetProduct, IProduct } from '../../interface/product.interface'
 import style from './product.module.scss'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { useState } from 'react'
 
 const ProductInfo = ({productName}: IProduct) => {
 
