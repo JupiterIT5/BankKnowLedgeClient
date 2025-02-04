@@ -12,3 +12,21 @@ export interface IGetProduct {
 	premium5?: string
 	img: string
 }
+
+export interface IProductAdmin {
+	minLimit: number
+	maxLimit: number
+	minTime: number
+	maxTime: number
+}
+
+export interface IBidAdmin {
+	finance: number
+	salary: number
+	pension: number
+}
+
+export interface IGetBidAdmin {
+	name: string
+	bid: number
+}

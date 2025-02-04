@@ -30,7 +30,7 @@ const Header = () => {
 			<section className={style.userData}>
 				<nav className={style.nav}>
 					<a href="/">Избранное</a>
-					<a href="/">Калькулятор</a>
+					<a href="/calculate">Калькулятор</a>
 				</nav>
 				<div className={style.userProfile}>
 				 {

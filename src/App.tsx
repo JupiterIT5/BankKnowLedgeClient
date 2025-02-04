@@ -5,6 +5,7 @@ import Reg from './pages/Reg'
 import Auth from './pages/Auth'
 import Profile from './pages/Profile'
 import AdminPanel from './pages/AdminPanel'
+import Calculate from './components/Calculate/Calculate'
 
 const App = () => {
   return (
@@ -16,10 +17,12 @@ const App = () => {
       <Route path='/kidsCard' element={<Product productName='Дебетовая карта'/>} />
       <Route path='/mortgage' element={<Product productName='Ипотека'/>} />
       <Route path='/financeProtect' element={<Product productName='Финансовая защита'/>} />
+      <Route path='/creditNal' element={<Product productName='Потребительский кредит'/>} />
       <Route path='/reg' element={<Reg />} />
       <Route path='/auth' element={<Auth />} />
       <Route path='/account' element={<Profile />}/>
       <Route path='/adminPanel' element={<AdminPanel />} />
+      <Route path='/calculate' element={<Calculate />}/>
     </Routes>
   )
 }

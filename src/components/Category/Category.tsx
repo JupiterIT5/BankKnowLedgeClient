@@ -1,6 +1,6 @@
 import style from './category.module.scss'
 import piggyBank from '../../images/icons/category/piggyBank.png'
-// import creditNal from '../../images/icons/category/credit.png'
+import creditNal from '../../images/icons/category/creditNal.png'
 import autoCredit from '../../images/icons/category/autoCredit.png'
 import card from '../../images/icons/category/card.png'
 import finance from '../../images/icons/category/finance.png'
@@ -20,10 +20,6 @@ const Category = () => {
 					<img src={piggyBank} alt='...' className={style.categoryIcon} />
 					<h2 className={style.categoryName}>Накопительный счёт</h2>
 				</div>
-				{/* <div className={style.category} onClick={() => nextPage('creditNal')}>
-					<img src={creditNal} alt='...' className={style.categoryIcon} />
-					<h2 className={style.categoryName}>Кредит наличными</h2>
-				</div> */}
 				<div className={style.category} onClick={() => nextPage('autoCredit')}>
 					<img src={autoCredit} alt='...' className={style.categoryIcon} />
 					<h2 className={style.categoryName}>Автокредит</h2>
@@ -42,7 +38,11 @@ const Category = () => {
 				</div>
 				<div className={style.category} onClick={() => nextPage('financeProtect')}>
 					<img src={finance} alt='...' className={style.categoryIcon} />
-					<h2 className={style.categoryName}>Финанцевая защита</h2>
+					<h2 className={style.categoryName}>Финансовая защита</h2>
+				</div>
+				<div className={style.category} onClick={() => nextPage('creditNal')}>
+					<img src={creditNal} alt='...' className={style.categoryIcon} />
+					<h2 className={style.categoryName}>Потребительский кредит</h2>
 				</div>
 			</div>
 		</section>

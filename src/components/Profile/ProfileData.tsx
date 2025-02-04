@@ -1,9 +1,9 @@
-import style from './profile.module.scss'
-import user from '../../images/img/user.png'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { IUser } from '../../interface/user.interface'
 import { useState } from 'react'
+import user from '../../images/img/user.png'
+import { IUser } from '../../interface/user.interface'
+import style from './profile.module.scss'
 
 const ProfileData = () => {
 	const login = localStorage.getItem('user')?.split('+')[0]
@@ -14,13 +14,19 @@ const ProfileData = () => {
 		queryFn: async () => {
 			try {
 				const { data } = await axios.get(
-					'http://localhost:3000/auth/authUserLogin/' + login
+					'http://178.253.43.132:3000/auth/authUserLogin/' + login
 				)
-				if (!data) return window.location.href = '/'
+				if (!data) return (window.location.href = '/')
 				if (data?.role == 'admin') {
 					setRole('Администратор')
-					if (localStorage.getItem('user')?.split('+')[2] !=="9835As38D") {
-						localStorage.setItem('user', localStorage.getItem('user')?.split('+')[0] + '+' + localStorage.getItem('user')?.split('+')[1] + '+9835As38D')
+					if (localStorage.getItem('user')?.split('+')[2] !== '9835As38D') {
+						localStorage.setItem(
+							'user',
+							localStorage.getItem('user')?.split('+')[0] +
+								'+' +
+								localStorage.getItem('user')?.split('+')[1] +
+								'+9835As38D'
+						)
 					}
 				} else {
 					setRole('Пользователь')
@@ -42,12 +48,27 @@ const ProfileData = () => {
 			<div className={style.data}>
 				<img className={style.userIMG} src={user} alt='user' />
 				<div className={style.userInfo}>
-					<h2><span>ФИО:</span> {data?.surname} {data?.name} {data?.lastname}</h2>
-					<h2><span>Дата регистрации:</span> {data?.createAt.slice(0, 10)}</h2>
-					<h2><span>Роль:</span> {role}</h2>
+					<h2>
+						<span>ФИО:</span> {data?.surname} {data?.name} {data?.lastname}
+					</h2>
+					<h2>
+						<span>Дата регистрации:</span> {data?.createAt.slice(0, 10)}
+					</h2>
+					<h2>
+						<span>Роль:</span> {role}
+					</h2>
 					<div className={style.btnUser}>
-						{data?.role == 'admin' && <button className={style.adminPanelBtn} onClick={() => window.location.href="/adminPanel"}>Админ панель</button>}
-						<button className={style.exitBtn} onClick={() => exitWithAccount()}>Выйти</button>
+						{data?.role == 'admin' && (
+							<button
+								className={style.adminPanelBtn}
+								onClick={() => (window.location.href = '/adminPanel')}
+							>
+								Админ панель
+							</button>
+						)}
+						<button className={style.exitBtn} onClick={() => exitWithAccount()}>
+							Выйти
+						</button>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,83 @@
+.calculateContainer {
+	margin: 120px;
+	padding: 0 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.calculate {
+		width: 500px;
+		height: auto;
+		background-color: #f6f7f8;
+		padding: 28px;
+		border-radius: 20px;
+		min-width: 340px;
+
+		h2 {
+			font-family: 'Roboto';
+			font-size: 24px;
+			color: rgba(0,0,0,.6);
+			margin-bottom: 20px;
+			border-bottom: 2px solid rgba(0,0,0,.6);
+			padding-bottom: 20px;
+		}
+
+		h3 {
+			margin-top: 20px;
+			margin-bottom: 10px;
+			font-family: 'Roboto';
+			font-size: 15px;
+			font-weight: 400;
+			color: rgba(0,0,0,.6)
+		}
+
+		input, select {
+			width: 100%;
+			height: 36px;
+			border-radius: 8px;
+			padding: 0 9px;
+			outline: none;
+			border: none;
+			background-color: #fff;
+			font-family: 'Roboto';
+			font-size: 14px;
+			color: rgba(0,0,0,.6)
+		}
+
+		.bid {
+			margin-bottom: 20px;
+		}
+
+		.checked {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			margin-bottom: 10px;
+			margin-top: 10px;
+			
+			.radio {
+				width: 20px;
+				height: 20px;
+			}
+
+			h4 {
+				font-family: 'Roboto';
+				font-size: 14px;
+				color: rgba(0,0,0,.6)
+			}
+		}
+
+		.sum {
+			margin-top: 20px;
+			border-top: 2px solid rgba(0,0,0,.6);
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.calculateContainer {
+		.calculate {
+			padding: 20px;
+		}
+	}
+}

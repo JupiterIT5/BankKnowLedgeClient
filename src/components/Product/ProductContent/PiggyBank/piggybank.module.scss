@@ -1,0 +1,369 @@
+.contentContainer {
+	padding: 10px;
+
+	.title {
+		position: relative;
+		margin-left: 70px;
+		font-family: 'Roboto';
+		font-size: 24px;
+		color: rgb(33, 45, 143);
+		font-weight: 400;
+
+		&::before {
+			content: '';
+			background-image: url(../../../../images/icons/title.png);
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 60px;
+			height: 33px;
+			margin-left: -70px;
+		}
+	}
+
+	.definition {
+		font-family: 'Roboto';
+		font-size: 15px;
+		font-weight: 400;
+		width: 90%;
+		margin: 25px auto;
+		height: auto;
+		min-height: 50px;
+		border-radius: 30px;
+		background-color: rgb(248, 230, 225);
+		align-items: center;
+		color: rgb(32, 21, 122);
+		gap: 10px;
+		position: relative;
+		padding: 15px;
+		padding-left: 120px;
+
+		span {
+			font-weight: bold;
+			display: flex;
+			flex-direction: row;
+		}
+
+		h5,
+		h6 {
+			font-size: 15px;
+			font-weight: 400;
+		}
+
+		&::before {
+			content: '';
+			background-image: url(../../../../images/icons/piggybank.png);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: absolute;
+			top: 8px;
+			left: 20px;
+			width: 55px;
+			height: 50px;
+		}
+	}
+
+	
+	.text {
+		font-family: 'Roboto';
+		font-size: 18px;
+		margin-top: -10px;
+		text-align: center;
+		text-transform: uppercase;
+		color: rgb(32, 21, 122);
+		margin-bottom: 30px;
+	}
+
+	.creditContainers {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: space-between;
+		gap: 20px;
+		column-gap: 100px;
+		margin: 0 auto;
+		margin-bottom: 50px;
+
+		.creditContainer {
+			width: 100%;
+			height: auto;
+			display: flex;
+			flex-direction: row;
+			gap: 30px;
+			min-height: 100px;
+			background-color: rgb(245, 246, 250);
+			border-radius: 20px;
+			align-items: center;
+			padding-left: 50px;
+			padding: 29px;
+
+			li,
+			p {
+				list-style-type: disc;
+				font-family: 'Roboto';
+				font-size: 15px;
+				font-weight: 300;
+
+				span {
+					color: rgb(33, 45, 143);
+					font-size: 16px;
+					font-weight: bold;
+				}
+			}
+
+			h3 {
+				color: rgb(57, 47, 139);
+				font-family: 'Roboto';
+				font-size: 15px;
+				font-weight: 300;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	.require {
+		display: grid;
+		grid-template-columns: 0.2fr 0.4fr 0.4fr;
+		gap: 10px;
+		margin: 60px 0;
+
+		.requireName {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: rgb(245, 246, 249);
+			border-radius: 20px;
+			padding: 19px;
+
+			img {
+				width: 80px;
+				height: 80px;
+			}
+
+			h2 {
+				font-family: 'Roboto';
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				margin-top: 15px;
+				color: rgb(66, 97, 183);
+			}
+		}
+
+		.requireDesc {
+			width: 100%;
+			background-color: rgb(245, 246, 249);
+			border-radius: 20px;
+			padding: 19px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			
+
+			li {
+				list-style-type: disc;
+				font-family: 'Roboto';
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 20px;
+				opacity: 0.7;
+			}
+		}
+
+		.requireDesc:nth-child(2), .requireDesc:nth-child(3) {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+
+			h2 {
+				position: absolute;
+				top: -40px;
+				text-transform: uppercase;
+				font-family: 'Roboto';
+				font-weight: bold;
+				font-size: 16px;
+				color: rgb(49, 39, 131);
+			}
+
+			p, h3 {
+				font-family: 'Roboto';
+				font-size: 14px;
+				font-weight: 400;
+			}
+
+			h3 {
+				color: rgb(218, 133, 121)
+			}
+		}
+	}
+
+	.table {
+		width: 100%;
+		height: auto;
+		margin-top: 50px;
+		border: 1px solid #000;
+		font-family: 'Roboto';
+		margin-bottom: 50px;
+
+		tr {
+			td {
+				border: 1px solid #000;
+				padding: 5px 0;
+				padding-left: 5px;
+				font-family: 'Roboto';
+				font-size: 14px;
+				color: rgba(0,0,0,.7);
+
+				span {
+					color:rgb(32, 21, 122);
+					font-weight: bold;
+					font-size: 15px;
+				}
+
+				h4 {
+					color: #c6264d;
+					font-weight: bold;
+					text-align: center;
+					margin-bottom: 5px;
+				}
+
+				h5 {
+					text-align: center;
+					font-size: 14px;
+					color: rgba(0,0,0,.7);
+					font-weight: 400;
+					margin-bottom: 5px;
+				}
+				p {
+					font-weight: bold;
+					color: #000;
+				}
+			}
+
+			td:nth-child(1) {
+				color:rgb(32, 21, 122);
+				font-weight: bold;
+			}
+		}
+
+		thead {
+			tr {
+				background-color: rgb(55, 50, 142);
+
+				td {
+					font-weight: bold;
+					color: #fff;
+					padding: 5px;
+				}
+				td:nth-child(2) {
+					text-align: center;
+					width: 70%;
+				}
+				td:nth-child(1) {
+					color: #fff
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1142px) {
+	.contentContainer {
+		.require {
+			grid-template-columns: 0.2fr 0.5fr 0.5fr;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.contentContainer {
+		.require {
+			.requireDesc:nth-child(3), 
+			.requireDesc:nth-child(2) {
+				h2 {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 935px) {
+	.contentContainer {
+		.creditContainers {
+			gap: 10px;
+			.creditContainer {
+				padding: 10px;
+				gap: 10px;
+			}
+		}
+
+		.require {
+			display: flex;
+			flex-direction: column;
+
+			.requireDesc:nth-child(2), .requireDesc:nth-child(3) {
+				h2 {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 755px) {
+	.contentContainer {
+		.creditContainers {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+@media (max-width: 720px) {
+	.contentContainer {
+		.definition {
+			font-size: 12px;
+		}
+	}
+}
+
+@media (max-width: 550px) {
+	.contentContainer {
+		.definition {
+			padding: 15px;
+			font-size: 13px;
+			&::before {
+				background-image: none;
+			}
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	.contentContainer {
+		.table {
+			tr {
+				td {
+					padding: 0;
+					font-size: 12px;
+
+					span {
+						font-size: 13px;
+					}
+
+					h5 {
+						font-size: 13px;
+					}
+				}
+			}
+		}
+	}
+}
