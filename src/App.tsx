@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Reg from './pages/Reg'
-import Auth from './pages/Auth'
 import Profile from './pages/Profile'
 import AdminPanel from './pages/AdminPanel'
 import Calculate from './components/Calculate/Calculate'
 
 const App = () => {
+  
   return (
     <Routes>
       <Route path='/' element={<Home/>} />
@@ -19,7 +19,7 @@ const App = () => {
       <Route path='/financeProtect' element={<Product productName='Финансовая защита'/>} />
       <Route path='/creditNal' element={<Product productName='Потребительский кредит'/>} />
       <Route path='/reg' element={<Reg />} />
-      <Route path='/auth' element={<Auth />} />
+      <Route path='/auth' element={<Reg />} />
       <Route path='/account' element={<Profile />}/>
       <Route path='/adminPanel' element={<AdminPanel />} />
       <Route path='/calculate' element={<Calculate />}/>

@@ -16,8 +16,16 @@ import CreditCard from './ProductContent/CreditCard/CreditCard'
 import PiggyBank from './ProductContent/PiggyBank/PiggyBank'
 import Mortgage from './ProductContent/Mortgage/Mortgage'
 import FinanceProtect from './ProductContent/FinanceProtect/FinanceProtect'
+import star from '../../images/icons/star.png'
+import starActive from '../../images/icons/starActive.png'
+import { useEffect, useState } from 'react'
+import { useActions } from '../../hooks/useActions'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const ProductInfo = ({ productName }: IProduct) => {
+	const { favorite } = useTypedSelector(state => state)
+	const {addToBasket, deleteToBasket} = useActions()	
+	const [active, setActive] = useState<boolean>(false)
 	const locale = window.location.pathname.slice(1)
 	const { data } = useQuery<IGetProduct>({
 		queryKey: ['getContent', productName],
@@ -29,9 +37,29 @@ const ProductInfo = ({ productName }: IProduct) => {
 		},
 	})
 
+	useEffect(() => {
+		favorite.products.forEach((value) => {
+			if (value.name == productName) {
+				setActive(true)
+			}
+		})
+	}, [])
+
+	const saveProduct = () => {
+		addToBasket({name: productName, path: locale})
+		setActive(true)
+	}
+
+	const delProduct = () => {
+		deleteToBasket(productName)
+		setActive(false)
+	}
+
 	return (
 		<section className={style.productInfo}>
-			<h1 className={style.title}>{data?.name}</h1>
+			<h1 className={style.title}>{data?.name} 
+				{!active ? <img src={star} className={style.star} alt="" onClick={saveProduct} /> : <img src={starActive} className={style.star} alt="" onClick={delProduct}/>}
+			</h1>
 			{data?.definition ? (
 				<h2 className={style.subTitle}>
 					<span>{data?.name}</span>

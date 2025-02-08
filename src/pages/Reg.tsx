@@ -4,8 +4,6 @@ import Header from '../components/Header/Header'
 
 const Reg = () => {
 
-	if (localStorage.length !== 0 || localStorage.getItem('user')) return window.location.href = '/'
-
 	return (
 		<>
 			<Header /> 

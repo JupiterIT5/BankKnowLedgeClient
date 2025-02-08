@@ -2,6 +2,11 @@ export interface IProduct {
 	productName: string
 }
 
+export interface IProduct1 {
+	name: string
+	path: string
+}
+
 export interface IGetProduct {
 	name: string
 	definition: string

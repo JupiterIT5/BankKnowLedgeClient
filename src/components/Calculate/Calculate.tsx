@@ -21,11 +21,11 @@ const Calculate = () => {
 	const [financeBool, setFinanceBool] = useState<boolean>(false)
 
 	useQuery({
-		queryKey: ['getAllData'],
+		queryKey: ['getAllDataParam'],
 		queryFn: async () => {
 			try {
 				const { data } = await axios.get(
-					'http://localhost:8000/product-data/getall'
+					'http://178.253.43.132:3000/product-data/getall'
 				)
 				setProductAll(data.productAll)
 				setBidAll(data.bidsAll)
@@ -190,23 +190,21 @@ const Calculate = () => {
 						<h3>Ставка %</h3>
 						{bidAll.length > 0 && <input type='text' value={bid} disabled className={style.bid} />}
 						<div className={style.checked}>
-							<input type='radio' name='check' className={style.radio} onClick={() => {
-								setBid(bidAll[3].bid - bidAll[0].bid)
-								setFinanceBool(true)
+							<input type='checkbox' name='check' className={style.checkbox} onClick={(e) => {
+								setBid(e.currentTarget.checked ? bid - bidAll[0].bid : bid + bidAll[0].bid)
+								setFinanceBool(!financeBool)
 							}} />
 							<h4>Финансовая защита</h4>
 						</div>
 						<div className={style.checked}>
-							<input type='radio' name='check' className={style.radio} onClick={() => {
-								setBid(bidAll[3].bid - bidAll[1].bid)
-								setFinanceBool(false)
+							<input type='checkbox' name='check' className={style.checkbox} onClick={(e) => {
+								setBid(e.currentTarget.checked ? bid - bidAll[1].bid : bid + bidAll[1].bid)
 								}} />
 							<h4>Зарплат. клиент</h4>
 						</div>
 						<div className={style.checked}>
-							<input type='radio' name='check' className={style.radio} onClick={() => {
-								setBid(bidAll[3].bid - bidAll[2].bid)
-								setFinanceBool(false)
+							<input type='checkbox' name='check' className={style.checkbox} onClick={(e) => {
+								setBid(e.currentTarget.checked ? bid - bidAll[2].bid : bid + bidAll[2].bid)
 								}} />
 							<h4>Пенсион. клиент</h4>
 						</div>

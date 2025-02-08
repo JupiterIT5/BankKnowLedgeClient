@@ -36,7 +36,7 @@ const AdminLog = () => {
 		queryFn: async () => {
 			try {
 				let { data } = await axios.get(
-					'http://localhost:8000/product-data/getproduct'
+					'http://178.253.43.132:3000/product-data/getproduct'
 				)
 				data.forEach((value: IProductAdmin, index: number) => {
 					if (index == 0) {
@@ -76,7 +76,7 @@ const AdminLog = () => {
 		queryFn: async () => {
 			try {
 				let { data } = await axios.get(
-					'http://localhost:8000/product-data/getbids'
+					'http://178.253.43.132:3000/product-data/getbids'
 				)
 				data.forEach((value: IGetBidAdmin, index: number) => {
 					if (index == 0) {
@@ -100,7 +100,7 @@ const AdminLog = () => {
 	})
 
 	const saveData = async () => {
-		await axios.post('http://localhost:8000/product-data/updatedata', {
+		await axios.post('http://178.253.43.132:3000/product-data/updatedata', {
 			biddata: [
 				{ name: 'finance', bid: bidsFinance },
 				{ name: 'pension', bid: bidsPension },
