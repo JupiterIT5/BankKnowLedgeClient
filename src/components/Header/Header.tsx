@@ -16,13 +16,14 @@ const Header = () => {
 	const [activeFavorite, setActiveFavorite] = useState<boolean>(false)
 
 	useEffect(() => {
-		const login: string | undefined = localStorage
+		if (localStorage.getItem('user')) {
+			const login: string | undefined = localStorage
 			.getItem('user')
 			?.split('+')[0]
-		setLogin(login)
-		setActive(true)
+			setLogin(login)
+			setActive(true)
+		}
 		setProduct(favorite.products)
-		console.log(favorite)
 	}, [favorite])
 
 	const userIsNotActive = () => {
