@@ -8,6 +8,7 @@ import { IProduct1 } from '../../interface/product.interface'
 import favoriteIcon from '../../images/icons/favorite.png'
 
 const Header = () => {
+
 	const { favorite } = useTypedSelector(state => state)
 	const [active, setActive] = useState<Boolean>(false)
 	const [login, setLogin] = useState<string | undefined>('')
@@ -15,14 +16,13 @@ const Header = () => {
 	const [activeFavorite, setActiveFavorite] = useState<boolean>(false)
 
 	useEffect(() => {
-		if (!localStorage.getItem('user')) return
 		const login: string | undefined = localStorage
 			.getItem('user')
 			?.split('+')[0]
 		setLogin(login)
 		setActive(true)
-
 		setProduct(favorite.products)
+		console.log(favorite)
 	}, [favorite])
 
 	const userIsNotActive = () => {
@@ -99,6 +99,7 @@ const Header = () => {
 				<div className={style.popupContainer}>
 					{product.length > 0 ? 
 					product.map((value, index) => {
+						console.log(value)
 						return <a key={index} onClick={() => window.location.href = `/${value.path}`}><img src={favoriteIcon} alt="" />{value.name}</a>
 					})
 					:
