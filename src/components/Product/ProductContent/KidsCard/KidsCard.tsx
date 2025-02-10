@@ -17,7 +17,6 @@ const KidsCard = () => {
 				счет за покупки по основной и всем дополнительные картам тарифа за
 				календарный месяц.
 			</h3>
-			<h3 className={style.text}>Почта банк предлагает кредиты:</h3>
 			<div className={style.creditContainers}>
 				<div className={style.creditContainer}>
 					<img src={icon1} alt='...' />

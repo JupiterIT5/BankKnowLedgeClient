@@ -17,7 +17,6 @@ const CreditNalContent = () => {
 				<span>Потребительский кредит -</span>
 				<h5>получение денежных средств у Банка на любые цели под проценты</h5>
 			</h3>
-			<h3 className={style.text}>Почта банк предлагает кредиты:</h3>
 			<div className={style.creditContainers}>
 				<div className={style.creditContainer}>
 					<img src={icon1} alt='...' />
