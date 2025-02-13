@@ -149,6 +149,12 @@ const AdminLog = () => {
 		await axios.post(`http://178.253.43.132:3000/auth/updAdmin/${login}`, {
 			check,
 		})
+		return window.location.href = '/adminPanel'
+	}
+
+	const delUser = async (login: string) => {
+		await axios.post(`http://178.253.43.132:3000/auth/delUser/${login}`)
+		return window.location.href = '/adminPanel'
 	}
 
 	return (
@@ -421,7 +427,7 @@ const AdminLog = () => {
 												/>
 											)}
 										</td>
-										<td onClick={() => saveUser(value.login)}>Сохранить</td>
+										<td><span onClick={() => saveUser(value.login)}>Сохранить</span> / <span onClick={() => delUser(value.login)}>Удалить</span></td>
 									</tr>
 								))}
 						</tbody>

@@ -117,8 +117,15 @@
 				font-family: 'Roboto';
 			}
 			td:nth-child(6) {
-				color: royalblue;
 				cursor: pointer;
+
+				span:nth-child(1) {
+					color: royalblue;
+				}
+
+				span:nth-child(2) {
+					color: red
+				}
 			}
 		}
 	}

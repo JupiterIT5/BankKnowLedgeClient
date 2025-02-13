@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import style from './auth.module.scss'
 
 const AuthComponent = () => {
@@ -8,28 +8,36 @@ const AuthComponent = () => {
 	const [name, setName] = useState<string>('')
 	const [surname, setSurname] = useState<string>('')
 	const [lastname, setLastname] = useState<string>('')
-	const [error, setError] = useState<string>('')
+	const [error, setError] = useState<Array<string>>([])
 
 	const Auth = async () => {
-		setError('')
 		if (!login || !password) {
-			setError('Заполните данные!')
+			setError(['Заполните данные!'])
 			return
 		}
 		if (window.location.pathname == '/reg') {
-			if (
-				(password.length < 3 ||
-					login.length < 3 ||
-					name.length < 3 ||
-					surname.length < 3,
-				lastname.length < 3 &&
-					name.length > 15 &&
-					surname.length > 15 &&
-					lastname.length > 15)
-			) {
-				setError('Минимальное значение - 3, Максимальное - 15')
-				return
+			setError([])
+			if (password.length < 7) {
+				if (!error.includes('Минимальная длина пароля - 6')) {
+					setError([...error, 'Минимальная длина пароля - 6'])
+				}
 			}
+			if (login.length < 4) {
+				setError([...error, 'Минимальная длина логина - 3'])
+			}
+			// name.length < 4 && setError(['Минимальная длина имени - 2'])
+			// lastname.length < 4 &&
+			// 	setError(['Минимальная длина фамилии - 3'])
+			// surname.length < 4 &&
+			// 	setError(['Минимальная длина отчества - 3'])
+
+			if (
+				password.length < 7 ||
+				login.length < 4 ||
+				name.length < 3 ||
+				lastname.length < 4 ||
+				surname.length < 4
+			) return
 
 			await axios
 				.post(`http://178.253.43.132:3000/auth/create`, {
@@ -43,24 +51,10 @@ const AuthComponent = () => {
 					localStorage.setItem('user', `${data.login}+${data.password}`)
 					window.location.href = '/'
 				})
-				.catch(() => setError('Аккаунт уже существует.'))
+				.catch(() => setError(['Аккаунт уже существует.']))
 		}
 
 		if (window.location.pathname == '/auth') {
-			if (
-				(password.length < 3 ||
-					login.length < 3 ||
-					name.length < 3 ||
-					surname.length < 3,
-				lastname.length < 3 &&
-					name.length > 15 &&
-					surname.length > 15 &&
-					lastname.length > 15)
-			) {
-				setError('Минимальное значение - 3, Максимальное - 15')
-				return
-			}
-
 			await axios
 				.post(`http://178.253.43.132:3000/auth/authUser`, {
 					login,
@@ -68,13 +62,13 @@ const AuthComponent = () => {
 				})
 				.then(({ data }) => {
 					if (!data.login || !data.password) {
-						setError('Неверный логин или пароль.')
+						setError(['Неверный логин или пароль.'])
 						return
 					}
 					localStorage.setItem('user', `${data.login}+${data.password}`)
 					window.location.href = '/'
 				})
-				.catch(() => setError('Неверный логин или пароль.'))
+				.catch(() => setError(['Неверный логин или пароль.']))
 		}
 	}
 
@@ -135,7 +129,9 @@ const AuthComponent = () => {
 						maxLength={20}
 						onChange={e => setPassword(e.target.value)}
 					/>
-					{error && <h2 className={style.error}>{error}</h2>}
+					{error && error.map((value: string, index: number) => (
+						<h2 className={style.error} key={index}>{value}</h2>
+					))}
 					<div className={style.formBtn}>
 						<button className={style.successBtn} onClick={() => Auth()}>
 							{window.location.pathname == '/auth' ? 'Войти' : 'Регистрация'}
