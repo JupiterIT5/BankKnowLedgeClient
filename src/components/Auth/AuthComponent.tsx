@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import style from './auth.module.scss'
 
 const AuthComponent = () => {
@@ -16,30 +16,26 @@ const AuthComponent = () => {
 			return
 		}
 		if (window.location.pathname == '/reg') {
-			setError([])
-			if (password.length < 7) {
-				if (!error.includes('Минимальная длина пароля - 6')) {
-					setError([...error, 'Минимальная длина пароля - 6'])
-				}
+			let errorArray: Array<string> = []
+			if (password.length < 6) {
+				errorArray.push('Минимальная длина пароля - 6')
 			}
-			if (login.length < 4) {
-				setError([...error, 'Минимальная длина логина - 3'])
+			if (login.length < 3) {
+				errorArray.push('Минимальная длина логина - 3')
 			}
-			// name.length < 4 && setError(['Минимальная длина имени - 2'])
-			// lastname.length < 4 &&
-			// 	setError(['Минимальная длина фамилии - 3'])
-			// surname.length < 4 &&
-			// 	setError(['Минимальная длина отчества - 3'])
+			if (name.length < 2) {
+				errorArray.push('Минимальная длина имени - 2')
+			}
+			if (lastname.length < 3) {
+				errorArray.push('Минимальная длина отчества - 3')
+			}
+			if (surname.length < 3) {
+				errorArray.push('Минимальная длина фамилии - 3')
+			}
+			setError(errorArray)
 
-			if (
-				password.length < 7 ||
-				login.length < 4 ||
-				name.length < 3 ||
-				lastname.length < 4 ||
-				surname.length < 4
-			) return
-
-			await axios
+			if (errorArray.length < 1) {
+				await axios
 				.post(`http://178.253.43.132:3000/auth/create`, {
 					login,
 					password,
@@ -52,6 +48,7 @@ const AuthComponent = () => {
 					window.location.href = '/'
 				})
 				.catch(() => setError(['Аккаунт уже существует.']))
+			}
 		}
 
 		if (window.location.pathname == '/auth') {
@@ -93,7 +90,7 @@ const AuthComponent = () => {
 							type='text'
 							placeholder='Имя'
 							name='name'
-							maxLength={20}
+							maxLength={15}
 							onChange={e => setName(e.target.value)}
 						/>
 					)}
@@ -102,7 +99,7 @@ const AuthComponent = () => {
 							type='text'
 							placeholder='Фамилия'
 							name='surname'
-							maxLength={20}
+							maxLength={15}
 							onChange={e => setSurname(e.target.value)}
 						/>
 					)}
@@ -111,7 +108,7 @@ const AuthComponent = () => {
 							type='text'
 							placeholder='Отчество'
 							name='lastname'
-							maxLength={20}
+							maxLength={15}
 							onChange={e => setLastname(e.target.value)}
 						/>
 					)}
@@ -119,14 +116,13 @@ const AuthComponent = () => {
 						type='text'
 						placeholder='Логин'
 						name='login'
-						maxLength={20}
+						maxLength={15}
 						onChange={e => setLogin(e.target.value)}
 					/>
 					<input
 						type='text'
 						placeholder='Пароль'
 						name='password'
-						maxLength={20}
 						onChange={e => setPassword(e.target.value)}
 					/>
 					{error && error.map((value: string, index: number) => (
